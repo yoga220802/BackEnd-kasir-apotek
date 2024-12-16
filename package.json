@@ -1,7 +1,6 @@
 {
   "name": "backend-kasir-apotek",
   "version": "1.0.0",
-  "type": "module",
   "main": "build/server.js",
   "scripts": {
     "start": "node build/server.js",
