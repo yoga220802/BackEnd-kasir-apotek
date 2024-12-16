@@ -15,7 +15,14 @@
     "type": "git",
     "url": "git+https://github.com/yoga220802/BackEnd-kasir-apotek.git"
   },
-  "keywords": ["apotek", "kasir", "backend", "nodejs", "typescript", "sequelize"],
+  "keywords": [
+    "apotek",
+    "kasir",
+    "backend",
+    "nodejs",
+    "typescript",
+    "sequelize"
+  ],
   "author": "Yoga",
   "license": "ISC",
   "bugs": {
@@ -42,5 +49,9 @@
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
-  }
+  },
+  "resolutions": {
+  "pg": "^8.13.1"
+}
+
 }
