@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.ts",
+    "start": "node build/index.js",
+    "dev": "nodemon ./src/server.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
@@ -22,9 +24,19 @@
   "dependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
-    "express": "^4.21.2"
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/pg": "^8.11.10",
+    "@types/sequelize": "^4.28.20",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
