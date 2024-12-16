@@ -1,12 +1,14 @@
 {
   "name": "backend-kasir-apotek",
   "version": "1.0.0",
+  "type": "module",
   "main": "build/server.js",
   "scripts": {
     "start": "node build/server.js",
     "dev": "nodemon ./src/server.ts",
     "build": "tsc",
     "vercel-build": "npm run build",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts"
   },
