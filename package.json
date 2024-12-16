@@ -1,11 +1,12 @@
 {
   "name": "backend-kasir-apotek",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon ./src/server.ts",
     "build": "tsc",
+    "vercel-build": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts"
   },
@@ -13,14 +14,14 @@
     "type": "git",
     "url": "git+https://github.com/yoga220802/BackEnd-kasir-apotek.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["apotek", "kasir", "backend", "nodejs", "typescript", "sequelize"],
+  "author": "Yoga",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yoga220802/BackEnd-kasir-apotek/issues"
   },
   "homepage": "https://github.com/yoga220802/BackEnd-kasir-apotek#readme",
-  "description": "",
+  "description": "Backend untuk aplikasi kasir apotek menggunakan Node.js, Express, dan Sequelize",
   "dependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
