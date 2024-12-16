@@ -14,7 +14,7 @@ if (!caPemBase64) {
 } else {
   try {
     const caPemDecoded = Buffer.from(caPemBase64, 'base64').toString('utf-8');
-    const certPath = path.resolve(__dirname, 'certs', 'ca.pem');
+    const certPath = path.resolve('./certs', 'ca.pem');
 
     if (!fs.existsSync(path.dirname(certPath))) {
       fs.mkdirSync(path.dirname(certPath), { recursive: true });
@@ -47,7 +47,7 @@ export const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      ca: fs.readFileSync(path.resolve(__dirname, 'certs', 'ca.pem'), 'utf-8'),
+      ca: fs.readFileSync(path.resolve('./certs', 'ca.pem'), 'utf-8'),
     },
   },
 });
