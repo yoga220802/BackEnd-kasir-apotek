@@ -9,26 +9,27 @@ dotenv.config();
 
 // Decode sertifikat Base64 dari ENV dan simpan sementara
 const caPemBase64 = process.env.CA_PEM;
+let caPemDecoded;
 if (!caPemBase64) {
   console.error('Environment variable CA_PEM is not set. SSL connection may fail.');
 } else {
   try {
-    const caPemDecoded = Buffer.from(caPemBase64, 'base64').toString('utf-8');
-    const certPath = path.resolve('./certs', 'ca.pem');
+    caPemDecoded = Buffer.from(caPemBase64, 'base64').toString('utf-8');
+    // const certPath = path.resolve('./certs', 'ca.pem');
 
-    if (!fs.existsSync(path.dirname(certPath))) {
-      fs.mkdirSync(path.dirname(certPath), { recursive: true });
-    }
+    // if (!fs.existsSync(path.dirname(certPath))) {
+    //   fs.mkdirSync(path.dirname(certPath), { recursive: true });
+    // }
 
-    fs.writeFileSync(certPath, caPemDecoded, 'utf-8');
-    console.log('Sertifikat berhasil didekode dan disimpan sementara.');
+    // fs.writeFileSync(certPath, caPemDecoded, 'utf-8');
+    // console.log('Sertifikat berhasil didekode dan disimpan sementara.');
 
-    process.on('exit', () => {
-      if (fs.existsSync(certPath)) {
-        fs.unlinkSync(certPath);
-        console.log('Sertifikat sementara dihapus.');
-      }
-    });
+    // process.on('exit', () => {
+    //   if (fs.existsSync(certPath)) {
+    //     fs.unlinkSync(certPath);
+    //     console.log('Sertifikat sementara dihapus.');
+    //   }
+    // });
   } catch (err) {
     console.error('Failed to decode and save SSL certificate:', err);
   }
@@ -47,7 +48,7 @@ export const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      ca: fs.readFileSync(path.resolve('./certs', 'ca.pem'), 'utf-8'),
+      ca: caPemDecoded,
     },
   },
 });
