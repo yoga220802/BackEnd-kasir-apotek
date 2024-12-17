@@ -134,3 +134,4 @@ dist
 *.crt
 *.key
 *pem.b64
+.vercel

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sequelize = void 0;
 const sequelize_1 = require("sequelize");
 const dotenv_1 = __importDefault(require("dotenv"));
+const pg_1 = __importDefault(require("pg"));
 dotenv_1.default.config();
 // Decode sertifikat Base64 dari ENV dan simpan sementara
 const caPemBase64 = process.env.CA_PEM;
@@ -40,6 +41,7 @@ exports.sequelize = new sequelize_1.Sequelize({
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
     dialect: 'postgres',
+    dialectModule: pg_1.default,
     dialectOptions: {
         ssl: {
             require: true,
