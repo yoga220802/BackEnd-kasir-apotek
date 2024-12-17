@@ -25,7 +25,7 @@ Backend ini adalah bagian dari sistem kasir apotek yang bertanggung jawab untuk 
 
 #### URL: [https://back-end-kasir-apotek.vercel.app/](https://back-end-kasir-apotek.vercel.app/)
 ```
-POST /login
+POST /auth/login
 ```
 
 #### Header:
